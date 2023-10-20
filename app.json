@@ -1,13 +1,37 @@
 {
   "expo": {
     "scheme": "acme",
+    "icon": "./assets/icon.png",
     "web": {
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "@config-plugins/react-native-blob-util",
+      "@config-plugins/react-native-pdf"
     ],
-    "name": "medical",
-    "slug": "medical"
+    "name": "Orthoshiksha",
+    "slug": "medical",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "0576bbdc-9ccb-40a7-83ab-59012df64b3a"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ],
+      "package": "com.the_naveen_sharma.medical"
+    }
   }
 }
