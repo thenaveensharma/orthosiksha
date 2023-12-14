@@ -34,7 +34,7 @@ const Home = () => {
     {
       id: 4,
       title: "Case Scenarios",
-      navigate: "/case_scenarios",
+      navigate: "/cases/cases",
       link: images.Cases,
     },
     {

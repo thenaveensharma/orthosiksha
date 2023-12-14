@@ -9,11 +9,12 @@ import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../../constants";
 import { Image } from "react-native";
 import PICS from "../../components/common/PHOTOS";
-const Notes = () => {
+import { Notes } from "../../constants/Notes";
+const NotesComp = () => {
   const router = useRouter();
 
-  function handlePress(index) {
-    router.push("/notes/" + index);
+  function handlePress(pdfData) {
+    router.push("/notes/" + pdfData);
   }
   return (
     <SafeAreaView
@@ -43,17 +44,17 @@ const Notes = () => {
             justifyContent: "space-between",
           }}
         >
-          {PICS.map((item, index) => (
+          {Object.keys(Notes).map((item, index) => (
             <View
               style={{
                 width: "48%",
                 height: "auto",
               }}
-              key={item.id}
+              key={index}
             >
               <TouchableOpacity
                 style={{ width: "100%", backgroundColor: COLORS.lightWhite }}
-                onPress={() => handlePress(index)}
+                onPress={() => handlePress(item)}
               >
                 <View
                   style={{
@@ -66,7 +67,7 @@ const Notes = () => {
                   }}
                 >
                   <Image
-                    source={item.link}
+                    source={PICS[1].link}
                     resizeMode="contain"
                     style={{
                       width: "100%",
@@ -80,7 +81,7 @@ const Notes = () => {
                       textAlign: "center",
                     }}
                   >
-                    {item.title}
+                    {item}
                   </Text>
                 </View>
               </TouchableOpacity>
@@ -92,4 +93,4 @@ const Notes = () => {
   );
 };
 
-export default Notes;
+export default NotesComp;

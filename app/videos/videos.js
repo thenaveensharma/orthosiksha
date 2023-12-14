@@ -13,51 +13,19 @@ const Home = () => {
   const DATA = [
     {
       id: 1,
-      title: "Lecture Bytes",
-      navigate: "/videos/videos",
-    },
-    {
-      id: 2,
-      title: "quick notes",
-      navigate: "/quick_notes",
-    },
-    {
-      id: 3,
-      title: "Questions Bank",
-      navigate: "/questions_bank",
-    },
-    {
-      id: 4,
-      title: "Case Scenarios",
-      navigate: "/case_scenarios",
-    },
-    {
-      id: 5,
-      title: "E-Content Links",
-      navigate: "/e_content_links",
-    },
-    {
-      id: 16,
-      title: "OS Community",
-      navigate: "os_community",
+      title: "Basics of biomechanics",
+      link: "https://www.youtube.com/watch?v=MQPaNMNg_Sc",
     },
   ];
-  function handlePress() {
-    // router.push("/video/" + id);
-    Linking.canOpenURL("https://youtu.be/B0bb8q12KOg?si=HGLN3W3a5Eu3DUvd")
-      .then((supported) => {
-        if (supported) {
-          return Linking.openURL(
-            "https://youtu.be/B0bb8q12KOg?si=HGLN3W3a5Eu3DUvd",
-          );
-        } else {
-          return Linking.openURL("https://www.youtube.com");
-        }
+  function handlePress(link) {
+    Linking.canOpenURL(link)
+      .then(() => {
+        Linking.openURL(link);
       })
-      .catch((err) => console.error("An error occurred", err));
-    // Linking.openURL("instagram://user?username=apple").catch(() => {
-    //   Linking.openURL("https://www.instagram.com/apple");
-    // });
+      .catch((err) => console.error("An error occurred", err))
+      .finally(() => {
+        Linking.openURL(link);
+      });
   }
   return (
     <SafeAreaView
@@ -91,7 +59,7 @@ const Home = () => {
                 width: "100%",
                 backgroundColor: COLORS.lightWhite,
               }}
-              onPress={() => handlePress(item.id)}
+              onPress={() => handlePress(item.link)}
             >
               <View
                 style={{
