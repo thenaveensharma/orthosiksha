@@ -10,6 +10,7 @@ import { COLORS, icons, images, SIZES } from "../../constants";
 import { Image } from "react-native";
 import PICS from "../../components/common/PHOTOS";
 import { Notes } from "../../constants/Notes";
+import Header from "../../components/common/header/Header";
 const NotesComp = () => {
   const router = useRouter();
 
@@ -23,16 +24,8 @@ const NotesComp = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Quick Notes",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={"Quick Notes"} />
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{

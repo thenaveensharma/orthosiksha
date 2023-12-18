@@ -1,8 +1,7 @@
 import { View, StyleSheet, useWindowDimensions } from "react-native";
 import React from "react";
 import Pdf from "react-native-pdf";
-import { Stack } from "expo-router";
-import { COLORS } from "../../../constants";
+import Header from "../header/Header";
 const PdfComponent = ({ pdfData }) => {
   const { width, height } = useWindowDimensions();
 
@@ -13,16 +12,7 @@ const PdfComponent = ({ pdfData }) => {
   };
   return (
     <>
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Notes",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={""} />
       <View style={styles.container}>
         <Pdf
           // trustAllCerts={false}

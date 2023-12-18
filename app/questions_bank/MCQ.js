@@ -12,6 +12,7 @@ import {
   useLocalSearchParams,
 } from "expo-router";
 import { COLORS } from "../../constants";
+import Header from "../../components/common/header/Header";
 
 export default function MCQ() {
   const routeParams = useLocalSearchParams();
@@ -39,16 +40,8 @@ export default function MCQ() {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: String(question?.id),
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={String(question?.id)} />
+
       <Text
         style={{
           color: "black",

@@ -10,6 +10,7 @@ import { COLORS, icons, images, SIZES } from "../../constants";
 import { Image } from "react-native";
 import PICS from "../../components/common/PHOTOS";
 import { Cases } from "../../constants/Cases";
+import Header from "../../components/common/header/Header";
 const CasesComp = () => {
   const router = useRouter();
 
@@ -23,16 +24,8 @@ const CasesComp = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Case Scenarios",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={"Case Scenarios"} />
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{

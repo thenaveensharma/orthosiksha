@@ -9,6 +9,7 @@ import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../constants";
 import { Image } from "react-native";
 import Welcome from "../components/home/welcome/Welcome";
+import Header from "../components/common/header/Header";
 const Home = () => {
   const router = useRouter();
 
@@ -61,16 +62,7 @@ const Home = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Orthoshiksha",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={"Orthoshiksha"} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Welcome />
         <View

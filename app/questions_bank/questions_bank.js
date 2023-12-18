@@ -12,6 +12,7 @@ import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../../constants";
 import { Image } from "react-native";
 import { useEffect, useState, useMemo } from "react";
+import Header from "../../components/common/header/Header";
 const questions = [
   {
     id: 1,
@@ -981,19 +982,14 @@ const questions = [
 const Questions_bank = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
-  const [visibleQuestions, setVisibleQuestions] = useState(questions);
   const [searchValue, setSearchValue] = useState("");
-  const [totalPage, setTotalPage] = useState(visibleQuestions.length / 10);
+  const [totalPage, setTotalPage] = useState(questions?.length / 10);
 
   function handlePress(question) {
     router.push({ pathname: "/questions_bank/MCQ", params: question });
   }
 
-  useEffect(() => {
-    updateVisibleData();
-  }, [currentPage, searchValue]);
-
-  const updateVisibleData = () => {
+  const visibleQuestions = useMemo(() => {
     const startIndex = (currentPage - 1) * 10;
     const endIndex = startIndex + 10;
 
@@ -1013,10 +1009,8 @@ const Questions_bank = () => {
         : parseInt(newQuestions.length / 10)
     );
     newQuestions = newQuestions.slice(startIndex, endIndex);
-
-    setVisibleQuestions(newQuestions);
-  };
-
+    return newQuestions;
+  }, [searchValue, currentPage]);
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
   };
@@ -1037,16 +1031,7 @@ const Questions_bank = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Question Bank",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={"Question Bank"} />
       <View
         style={{
           backgroundColor: "#FFF",
@@ -1064,7 +1049,7 @@ const Questions_bank = () => {
           style={{ padding: 10 }}
         />
       </View>
-      {visibleQuestions.length ? (
+      {visibleQuestions?.length ? (
         <>
           <ScrollView showsVerticalScrollIndicator={false}>
             {visibleQuestions.map((question, index) => (

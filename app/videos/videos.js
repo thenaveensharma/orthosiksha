@@ -9,12 +9,23 @@ import {
 import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../../constants";
 import { Image } from "react-native";
+import Header from "../../components/common/header/Header";
 const Home = () => {
   const DATA = [
     {
       id: 1,
       title: "Basics of biomechanics",
       link: "https://www.youtube.com/watch?v=MQPaNMNg_Sc",
+    },
+    {
+      id: 2,
+      title: "Myofunctional appliance",
+      link: "https://youtu.be/kyfwGHb_2Ig?si=LdCDyo4v4XBEzPD0",
+    },
+    {
+      id: 3,
+      title: "More on YouTube",
+      link: "https://youtube.com/playlist?list=PLc-i0T3_PG6Tjx-tjV49BYP6CbvdOJlct&si=gTbj4mee4O4bnS2U",
     },
   ];
   function handlePress(link) {
@@ -34,16 +45,7 @@ const Home = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Stack.Screen
-        options={{
-          headerStyle: {
-            backGroundColor: COLORS.gray,
-          },
-          headerShadowVisible: true,
-          headerTitle: "Lecture Bytes",
-          headerTitleAlign: "center",
-        }}
-      />
+      <Header headerTitle={"Lecture Bytes"} />
       <ScrollView showsVerticalScrollIndicator={false}>
         {DATA.map((item, index) => (
           <View
