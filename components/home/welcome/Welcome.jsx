@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
-import { SIZES, SHADOWS, COLORS, FONT } from "../../../constants";
+import { View, Text } from "react-native";
+import { SIZES, SHADOWS, COLORS } from "../../../constants";
 const Welcome = () => {
   return (
     <View
@@ -19,6 +19,8 @@ const Welcome = () => {
           fontSize: SIZES.xLarge,
           color: COLORS.primary,
           margin: SIZES.small / 1.5,
+          fontFamily: "Gothic",
+          textTransform: "uppercase",
         }}
         numberOfLines={1}
       >

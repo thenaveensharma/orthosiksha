@@ -979,6 +979,27 @@ const questions = [
     rightOption: "4th month intra-uterine to birth",
   },
 ];
+
+const lightColors = [
+  "#ADD8E6", // Light Blue
+  "#FFFFE0", // Light Yellow
+  "#E6E6FA", // Light Lavender
+  "#FFDAB9", // Light Peach
+];
+const darkColors = [
+  "#00688B", // Dark Blue
+  "#BDB76B", // Dark Khaki
+  "#9370DB", // Medium Purple
+  "#CD853F", // Peru
+];
+
+function getRandomColor(id) {
+  const randomIndex = Math.floor(id % lightColors.length);
+  return {
+    dark: darkColors[randomIndex],
+    light: lightColors[randomIndex],
+  };
+}
 const Questions_bank = () => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
@@ -1052,57 +1073,75 @@ const Questions_bank = () => {
       {visibleQuestions?.length ? (
         <>
           <ScrollView showsVerticalScrollIndicator={false}>
-            {visibleQuestions.map((question, index) => (
-              <View
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: 30,
-                }}
-                key={index}
-              >
-                <TouchableOpacity
+            {visibleQuestions.map((question, index) => {
+              const questionColor = getRandomColor(question.id);
+              const capitalizedTitle =
+                question?.title.charAt(0).toUpperCase() +
+                question?.title.slice(1);
+              return (
+                <View
                   style={{
                     width: "100%",
-                    backgroundColor: COLORS.lightWhite,
+                    height: "auto",
+                    borderRadius: 30,
                   }}
-                  onPress={() => handlePress(question)}
+                  key={index}
                 >
-                  <View
+                  <TouchableOpacity
                     style={{
-                      backgroundColor: COLORS.white,
-                      borderRadius: 25,
-                      margin: 5,
-                      flex: 1,
-                      flexDirection: "row",
-                      alignquestions: "center",
-                      justifyContent: "flex-start",
-                      borderWidth: 1,
+                      width: "100%",
                     }}
+                    onPress={() => handlePress(question)}
                   >
-                    <Image
-                      source={images.Play}
-                      style={{ width: 50, height: 50, margin: 5 }}
-                    ></Image>
-                    <Text
+                    <View
                       style={{
-                        color: "black",
-                        fontSize: 20,
-                        textAlign: "left",
+                        flex: 1,
+                        flexDirection: "row",
+                        alignItems: "center",
                         margin: 5,
-                        padding: 5,
-                        width: "100%",
-                        flexWrap: "wrap",
-                        flexShrink: 1,
-                        flexGrow: 1,
+                        borderRadius: 10,
+                        borderWidth: 1,
+                        backgroundColor: questionColor.light,
+                        borderColor: questionColor.dark, // Add border color if needed
                       }}
                     >
-                      {question?.title}
-                    </Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            ))}
+                      <View
+                        style={{
+                          margin: 5,
+                          width: 50,
+                          height: 50,
+                          borderRadius: 25,
+                          backgroundColor: questionColor.dark,
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Text style={{ color: "white", fontSize: 30 }}>
+                          {question.id}
+                        </Text>
+                      </View>
+
+                      <Text
+                        style={{
+                          color: "black",
+                          fontSize: 20,
+                          textAlign: "left",
+                          margin: 5,
+                          padding: 5,
+                          flex: 1,
+                          flexWrap: "wrap",
+                          flexShrink: 1,
+                          flexGrow: 1,
+                          fontFamily: "Gothic",
+                        }}
+                      >
+                        {capitalizedTitle}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
           </ScrollView>
           <View
             style={{

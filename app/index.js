@@ -10,8 +10,12 @@ import { COLORS, icons, images, SIZES } from "../constants";
 import { Image } from "react-native";
 import Welcome from "../components/home/welcome/Welcome";
 import Header from "../components/common/header/Header";
+import { useFonts } from "expo-font";
 const Home = () => {
   const router = useRouter();
+  const [loaded] = useFonts({
+    Gothic: require("../assets/fonts/GothicA1-Regular.ttf"),
+  });
 
   const DATA = [
     {
@@ -41,13 +45,13 @@ const Home = () => {
     {
       id: 5,
       title: "E-Content Links",
-      navigate: "/e_content_links",
+      navigate: "/eContent",
       link: images.EContent,
     },
     {
       id: 6,
       title: "OS Community",
-      navigate: "os_community",
+      navigate: "/os_community",
       link: images.Community,
     },
   ];
@@ -111,6 +115,8 @@ const Home = () => {
                       color: "black",
                       fontSize: SIZES.medium,
                       textAlign: "center",
+                      fontFamily: "Gothic",
+                      textTransform: "uppercase",
                     }}
                   >
                     {item.title}

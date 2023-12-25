@@ -5,14 +5,19 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
-import { Stack, useRouter } from "expo-router";
-import { COLORS, icons, images, SIZES } from "../../constants";
+import { useRouter } from "expo-router";
+import { COLORS, SIZES } from "../../constants";
 import { Image } from "react-native";
-import PICS from "../../components/common/PHOTOS";
 import { Notes } from "../../constants/Notes";
 import Header from "../../components/common/header/Header";
+import NOTES_THUMBNAILS from "../../constants/NotesThumbnails.js";
+import { useFonts } from "expo-font";
 const NotesComp = () => {
   const router = useRouter();
+  const [loaded] = useFonts({
+    Gothic: require("../../assets/fonts/GothicA1-Regular.ttf"),
+  });
+  if (!loaded) return null;
 
   function handlePress(pdfData) {
     router.push("/notes/" + pdfData);
@@ -52,30 +57,32 @@ const NotesComp = () => {
                 <View
                   style={{
                     backgroundColor: COLORS.lightWhite,
-
                     borderColor: COLORS.primary,
                     borderWidth: 1,
                     paddingBottom: 2,
                     marginBottom: SIZES.medium,
+                    height: 315,
                   }}
                 >
+                  <Text
+                    style={{
+                      color: "black",
+                      fontSize: SIZES.medium,
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontFamily: "Gothic",
+                    }}
+                  >
+                    {item}
+                  </Text>
                   <Image
-                    source={PICS[1].link}
+                    source={NOTES_THUMBNAILS[index]?.image}
                     resizeMode="contain"
                     style={{
                       width: "100%",
                       height: 300,
                     }}
                   />
-                  <Text
-                    style={{
-                      color: "black",
-                      fontSize: SIZES.medium,
-                      textAlign: "center",
-                    }}
-                  >
-                    {item}
-                  </Text>
                 </View>
               </TouchableOpacity>
             </View>

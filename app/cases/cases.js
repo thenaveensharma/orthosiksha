@@ -4,10 +4,10 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../../constants";
-import { Image } from "react-native";
 import PICS from "../../components/common/PHOTOS";
 import { Cases } from "../../constants/Cases";
 import Header from "../../components/common/header/Header";
