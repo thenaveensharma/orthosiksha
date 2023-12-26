@@ -4,13 +4,16 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  Image,
   Linking,
 } from "react-native";
-import { COLORS, SIZES } from "../../constants";
+import { COLORS } from "../../constants";
 import Header from "../../components/common/header/Header";
 import { useRouter } from "expo-router";
 import { eContents } from "../../constants/eContents";
+import { Image } from "react-native";
+import Blog from "../../assets/images/Blog.png";
+import Pdf from "../../assets/images/Pdf.png";
+import Youtube from "../../assets/images/Youtube.png";
 
 const index = () => {
   const router = useRouter();
@@ -34,7 +37,7 @@ const index = () => {
         backgroundColor: COLORS.lightWhite,
       }}
     >
-      <Header headerTitle={"E-Contents"} />
+      <Header headerTitle={"E-Content"} />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {Object.keys(eContents).map((item, index) => (
@@ -64,6 +67,15 @@ const index = () => {
                   backgroundColor: COLORS.lightWhite,
                 }}
               >
+                <Image
+                  source={Pdf}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    resizeMode: "cover", // or 'contain' or 'stretch' or 'center'
+                    borderRadius: 10, // if you want to add rounded corners
+                  }}
+                />
                 <Text
                   style={{
                     color: "black",
@@ -109,6 +121,15 @@ const index = () => {
                 backgroundColor: COLORS.lightWhite,
               }}
             >
+              <Image
+                source={Blog}
+                style={{
+                  width: 50,
+                  height: 50,
+                  resizeMode: "cover", // or 'contain' or 'stretch' or 'center'
+                  borderRadius: 10, // if you want to add rounded corners
+                }}
+              />
               <Text
                 style={{
                   color: "black",
@@ -157,6 +178,15 @@ const index = () => {
                 backgroundColor: COLORS.lightWhite,
               }}
             >
+              <Image
+                source={Youtube}
+                style={{
+                  width: 50,
+                  height: 50,
+                  resizeMode: "cover", // or 'contain' or 'stretch' or 'center'
+                  borderRadius: 10, // if you want to add rounded corners
+                }}
+              />
               <Text
                 style={{
                   color: "black",
@@ -171,7 +201,7 @@ const index = () => {
                   fontFamily: "Gothic",
                 }}
               >
-                {"Youtube Channel"}
+                {"Mechanotherapy"}
               </Text>
             </View>
           </TouchableOpacity>

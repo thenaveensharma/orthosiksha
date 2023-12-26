@@ -61,7 +61,7 @@ const NotesComp = () => {
                     borderWidth: 1,
                     paddingBottom: 2,
                     marginBottom: SIZES.medium,
-                    height: 315,
+                    height: 330,
                   }}
                 >
                   <Text

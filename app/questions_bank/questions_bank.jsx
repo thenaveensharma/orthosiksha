@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../../constants";
-import { Image } from "react-native";
 import { useEffect, useState, useMemo } from "react";
 import Header from "../../components/common/header/Header";
 const questions = [
