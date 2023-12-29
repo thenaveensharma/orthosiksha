@@ -1,14 +1,14 @@
-import Note1 from "../assets/images/Note1.png";
-import Note2 from "../assets/images/Note2.png";
-import Note3 from "../assets/images/Note3.png";
-import Note4 from "../assets/images/Note4.png";
-import Note5 from "../assets/images/Note5.png";
-import Note6 from "../assets/images/Note6.png";
-import Note7 from "../assets/images/Note7.png";
-import Note8 from "../assets/images/Note8.png";
-import Note9 from "../assets/images/Note9.png";
-import Note10 from "../assets/images/Note10.png";
-import Note11 from "../assets/images/Note11.png";
+import Note1 from "../assets/images/Note1.jpg";
+import Note2 from "../assets/images/Note2.jpg";
+import Note3 from "../assets/images/Note3.jpg";
+import Note4 from "../assets/images/Note4.jpg";
+import Note5 from "../assets/images/Note5.jpg";
+import Note6 from "../assets/images/Note6.jpg";
+import Note7 from "../assets/images/Note7.jpg";
+import Note8 from "../assets/images/Note8.jpg";
+import Note9 from "../assets/images/Note9.jpg";
+import Note10 from "../assets/images/Note10.jpg";
+import Note11 from "../assets/images/Note11.jpg";
 
 const NOTES_THUMBNAILS = [
   {
